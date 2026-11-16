@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ÉLVARO Luxury Perfumes – Wear the Essence. Own the Moment.">
+<title>ÉLVARO | Luxury Perfumes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+:root{--gold:#c9a66b;--black:#090909;--cream:#eee5d7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--black);color:var(--cream);font-family:Montserrat,Arial,sans-serif}
+header{height:75px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #30291f;position:sticky;top:0;background:#090909ed;z-index:5}
+.logo{font-family:'Cormorant Garamond',serif;font-size:31px;letter-spacing:5px;color:var(--gold);text-decoration:none}
+nav{display:flex;gap:25px}
+nav a{color:#eee5d7;text-decoration:none;font-size:11px;letter-spacing:1.5px}
+.cart{border:1px solid var(--gold);background:none;color:var(--gold);padding:10px 15px;cursor:pointer}
+.hero{min-height:570px;display:flex;align-items:center;padding:65px 9%;background:radial-gradient(ellipse at 78% 45%,#55402b 0,#21170f 25%,#090909 65%)}
+.hero-content{max-width:590px}
+.eyebrow{color:var(--gold);letter-spacing:4px;font-size:11px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(55px,9vw,94px);line-height:.95;font-weight:400;margin:20px 0}
+.hero p{color:#c5b9a8;line-height:1.9;font-size:14px;max-width:440px}
+.gold-btn{display:inline-block;background:var(--gold);color:#100d08;text-decoration:none;padding:15px 25px;border:0;font-size:11px;letter-spacing:2px;font-weight:600;cursor:pointer;margin-top:17px}
+section{padding:75px 7%}
+.section-title{text-align:center;font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:400;margin:0 0 12px}
+.sub{text-align:center;color:#a99b87;font-size:12px;letter-spacing:2px;margin-bottom:38px}
+.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:35px}
+.filters button{background:none;border:1px solid #65533a;color:#d9cbb7;padding:10px 19px;cursor:pointer;font-size:11px}
+.filters button.active,.filters button:hover{background:var(--gold);color:#111}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.product{background:#14120f;border:1px solid #30291f;padding:15px;text-align:center}
+.bottle{height:220px;background:linear-gradient(145deg,#29231b,#100e0c);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.bottle:before{content:"";width:95px;height:145px;border-radius:12px 12px 19px 19px;background:linear-gradient(90deg,#090909,#30271d,#090909);border:1px solid #8d7043;box-shadow:0 15px 35px #000}
+.bottle:after{content:"";position:absolute;width:36px;height:28px;top:25px;background:linear-gradient(90deg,#8b6735,#e5c98c,#8b6735);border-radius:4px 4px 1px 1px}
+.bottle span{position:absolute;z-index:1;top:115px;color:#d7b878;font-family:'Cormorant Garamond',serif;letter-spacing:2px;font-size:15px}
+.product h3{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:500;margin:18px 0 6px}
+.product p{color:#a99b87;font-size:11px;letter-spacing:1px}
+.price{color:var(--gold);font-size:17px;margin:12px}
+.product button{width:100%;padding:12px;background:transparent;border:1px solid var(--gold);color:var(--gold);cursor:pointer;letter-spacing:1px;font-size:11px}
+.product button:hover{background:var(--gold);color:#111}
+.story{background:#17130e;text-align:center}
+.story p{max-width:650px;margin:20px auto;color:#c0b4a3;line-height:2;font-size:14px}
+.contact{text-align:center}
+.contact p{color:#c0b4a3;line-height:2;font-size:13px}
+footer{border-top:1px solid #30291f;padding:30px 7%;text-align:center;color:#8e806d;font-size:11px;line-height:2}
+.whatsapp{position:fixed;bottom:20px;right:18px;background:#20bd65;color:white;text-decoration:none;border-radius:30px;padding:15px 20px;font-size:12px;font-weight:600;z-index:8;box-shadow:0 5px 20px #0008}
+#cartPanel{display:none;position:fixed;inset:0;background:#000b;z-index:10;justify-content:center;align-items:center;padding:15px}
+.cartbox{background:#17130e;border:1px solid var(--gold);padding:25px;width:100%;max-width:440px;max-height:85vh;overflow:auto}
+.cartbox h2{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold)}
+.cartline{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #51432f;padding:12px 0;font-size:12px}
+.cartbox input{width:100%;padding:13px;margin:6px 0;background:#090909;color:white;border:1px solid #69583d}
+.cartbox .gold-btn{width:100%}
+.close{float:right;background:none;color:white;border:0;font-size:22px}
+@media(max-width:700px){nav{display:none}.hero{min-height:470px;padding:55px 7%}.products{grid-template-columns:repeat(2,1fr);gap:12px}section{padding:55px 5%}.bottle{height:175px}.product{padding:9px}.product h3{font-size:21px}.section-title{font-size:39px}}
+@media(max-width:380px){.products{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="#">ÉLVARO</a>
+<nav><a href="#home">HOME</a><a href="#shop">SHOP</a><a href="#story">OUR STORY</a><a href="#contact">CONTACT</a></nav>
+<button class="cart" onclick="openCart()">BAG (<span id="count">0</span>)</button>
+</header>
+
+<div class="hero" id="home">
+<div class="hero-content">
+<div class="eyebrow">THE ART OF LUXURY FRAGRANCE</div>
+<h1>Wear the Essence.<br>Own the Moment.</h1>
+<p>Discover a world of timeless elegance. Explore unforgettable fragrances crafted to make every moment extraordinary.</p>
+<a class="gold-btn" href="#shop">DISCOVER THE COLLECTION</a>
+</div>
+</div>
+
+<section id="shop">
+<h2 class="section-title">The Collection</h2>
+<div class="sub">FIND YOUR SIGNATURE SCENT</div>
+<div class="filters">
+<button class="active" onclick="filterProducts('All',this)">ALL</button>
+<button onclick="filterProducts('Men',this)">MEN</button>
+<button onclick="filterProducts('Women',this)">WOMEN</button>
+<button onclick="filterProducts('Unisex',this)">UNISEX</button>
+</div>
+<div class="products" id="products"></div>
+</section>
+
+<section class="story" id="story">
+<div class="eyebrow">THE ÉLVARO EXPERIENCE</div>
+<h2 class="section-title">A Signature Beyond Scent</h2>
+<p>ÉLVARO is more than a fragrance. It is an expression of individuality, confidence and timeless sophistication. Find the scent that tells your story.</p>
+</section>
+
+<section class="contact" id="contact">
+<div class="eyebrow">WE WOULD LOVE TO HEAR FROM YOU</div>
+<h2 class="section-title">Get In Touch</h2>
+<p>College Street, Kolkata, West Bengal, India</p>
+<p>Phone: +91 6291899878</p>
+<a class="gold-btn" href="https://wa.me/916291899878">CONTACT US ON WHATSAPP</a>
+</section>
+
+<footer>
+<div class="logo">ÉLVARO</div>
+<p>Wear the Essence. Own the Moment.</p>
+<p>© 2026 ÉLVARO. All rights reserved.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/916291899878">WhatsApp Us</a>
+
+<div id="cartPanel">
+<div class="cartbox">
+<button class="close" onclick="closeCart()">×</button>
+<h2>Your Shopping Bag</h2>
+<div id="cartItems">Your bag is empty.</div>
+<p id="total"></p>
+<input id="customer" placeholder="Your full name">
+<input id="phone" placeholder="Your phone number">
+<input id="address" placeholder="Your delivery address">
+<button class="gold-btn" onclick="checkout()">ORDER ON WHATSAPP</button>
+</div>
+</div>
+
+<script>
+const products=[
+{name:"Royal Oud",price:1499,cat:"Men"},
+{name:"Midnight Intense",price:1999,cat:"Men"},
+{name:"Black Signature",price:2499,cat:"Men"},
+{name:"Imperial Musk",price:1799,cat:"Men"},
+{name:"Dark Leather",price:2999,cat:"Men"},
+{name:"Rose Elegance",price:1299,cat:"Women"},
+{name:"Velvet Bloom",price:1599,cat:"Women"},
+{name:"Golden Goddess",price:2499,cat:"Women"},
+{name:"Floral Dream",price:999,cat:"Women"},
+{name:"Divine Aura",price:1899,cat:"Women"},
+{name:"Amber Essence",price:2999,cat:"Unisex"},
+{name:"Oud Supreme",price:3499,cat:"Unisex"},
+{name:"Royal Reserve",price:3999,cat:"Unisex"},
+{name:"Signature Collection",price:5000,cat:"Unisex"},
+{name:"Classic Edition",price:599,cat:"Unisex"}
+];
+let cart=[];
+function render(category="All"){
+const list=category==="All"?products:products.filter(p=>p.cat===category);
+document.getElementById("products").innerHTML=list.map(p=>`
+<div class="product">
+<div class="bottle"><span>ÉLVARO</span></div>
+<h3>${p.name}</h3>
+<p>${p.cat.toUpperCase()} · EAU DE PARFUM</p>
+<div class="price">₹${p.price.toLocaleString("en-IN")}</div>
+<button onclick="addToCart('${p.name}')">ADD TO BAG</button>
+</div>`).join("");
+}
+function filterProducts(cat,btn){
+document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");render(cat);
+}
+function addToCart(name){
+let item=cart.find(p=>p.name===name);
+if(item)item.qty++;else cart.push({...products.find(p=>p.name===name),qty:1});
+updateCart();alert(name+" added to your bag.");
+}
+function updateCart(){
+document.getElementById("count").textContent=cart.reduce((s,p)=>s+p.qty,0);
+document.getElementById("cartItems").innerHTML=cart.length?cart.map(p=>`<div class="cartline"><span>${p.name} × ${p.qty}</span><span>₹${(p.price*p.qty).toLocaleString("en-IN")}</span></div>`).join(""):"Your bag is empty.";
+document.getElementById("total").textContent="Total: ₹"+cart.reduce((s,p)=>s+p.price*p.qty,0).toLocaleString("en-IN");
+}
+function openCart(){document.getElementById("cartPanel").style.display="flex";updateCart()}
+function closeCart(){document.getElementById("cartPanel").style.display="none"}
+function checkout(){
+if(!cart.length){alert("Your bag is empty.");return}
+let name=document.getElementById("customer").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let address=document.getElementById("address").value.trim();
+if(!name||!phone||!address){alert("Please enter your name, phone number and delivery address.");return}
+let lines=cart.map(p=>p.name+" x "+p.qty+" = Rs. "+p.price*p.qty).join("\n");
+let total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+let msg="Hello ÉLVARO! I want to place an order:\n\n"+lines+"\n\nTotal: Rs. "+total+"\n\nName: "+name+"\nPhone: "+phone+"\nDelivery address: "+address;
+window.open("https://wa.me/916291899878?text="+encodeURIComponent(msg),"_blank");
+}
+render();
+</script>
+</body>
+</html>
